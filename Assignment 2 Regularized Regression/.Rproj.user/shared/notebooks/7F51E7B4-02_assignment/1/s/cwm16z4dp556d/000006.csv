@@ -1,4 +1,4 @@
-"0","eliminatedByLasso = which(lasso.coef == 0, arr.ind = FALSE, useNames = FALSE)"
+"0","eliminatedByLasso = which(lasso.coef[-1] == 0, arr.ind = FALSE, useNames = FALSE)"
 "0","length(eliminatedByLasso)"
 "1","[1]"
 "1"," 64"

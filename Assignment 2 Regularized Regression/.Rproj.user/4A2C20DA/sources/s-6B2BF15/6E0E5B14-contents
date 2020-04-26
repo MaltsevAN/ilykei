@@ -42,7 +42,7 @@ head(lasso.coef)
 length(lasso.coef)
 ```
 ```{r}
-eliminatedByLasso = which(lasso.coef == 0, arr.ind = FALSE, useNames = FALSE)
+eliminatedByLasso = which(lasso.coef[-1] == 0, arr.ind = FALSE, useNames = FALSE)
 length(eliminatedByLasso)
 ```
 
