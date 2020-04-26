@@ -1,0 +1,7 @@
+"0","indecses = coefficients(summary(linear_model))[-1,4] > 0.05"
+"0","eliminatedByLm =  which(indecses, arr.ind = FALSE, useNames = TRUE)"
+"0","length(eliminatedByLm)"
+"1","[1]"
+"1"," 128"
+"1","
+"

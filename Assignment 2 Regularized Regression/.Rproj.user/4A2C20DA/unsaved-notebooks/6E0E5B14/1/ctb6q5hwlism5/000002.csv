@@ -1,0 +1,5 @@
+"0","res = matrix(c(""lasso"",""lm"","""",""""),ncol=2)"
+"0","colnames(res) <- c(""model"",""removed_regressors"")"
+"0","res[,""removed_regressors""][1] = paste0(eliminatedByLasso,collapse = "" "")"
+"0","res[,""removed_regressors""][2] = paste0(eliminatedByLm,collapse = "" "")"
+"0","write.csv(res,""W2answer.csv"",quote=FALSE,row.names = F)"

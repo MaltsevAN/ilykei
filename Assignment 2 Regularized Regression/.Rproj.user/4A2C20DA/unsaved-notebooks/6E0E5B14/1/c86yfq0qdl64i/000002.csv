@@ -1,0 +1,1 @@
+"0","lasso.coef=predict(out,type=""coefficients"",s=bestlam)"

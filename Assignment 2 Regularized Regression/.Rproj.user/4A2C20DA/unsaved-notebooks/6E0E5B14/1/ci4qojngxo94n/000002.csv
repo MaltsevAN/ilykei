@@ -1,0 +1,1 @@
+"0","out=glmnet(x=as.matrix(data[,2:492]),y=as.vector(data[,1]),alpha=1,lambda=bestlam)"
