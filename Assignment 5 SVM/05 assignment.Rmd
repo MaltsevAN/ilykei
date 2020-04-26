@@ -1,0 +1,56 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+```{r}
+install.packages('caret')
+```
+```{r}
+install.packages('e1071')
+```
+```{r}
+suppressWarnings(library(e1071))
+```
+```{r}
+dataPath<-"./"
+data <- read.csv(paste0(dataPath,"test_sample.csv"))
+```
+```{r}
+dim(data)
+```
+```{r}
+set.seed(1)
+svmFit<-svm(class~., data=data,type="C-classification")
+predict <- predict(svmFit, data[,!names(data)=="class"], probability=FALSE)
+```
+
+```{r}
+conf <- table(pred = predict, true = data[,"class"])
+```
+```{r}
+conf
+```
+
+```{r}
+print('Base SVM')
+classAgreement(conf)$diag
+```
+```{r}
+svmTuned <- tune(svm, train.x=as.matrix(data[,1:2]), 
+train.y = as.factor(data$class), 
+type="C-classification", 
+ranges = list(
+  gamma = 10^(-3:-1), cost = 5*(2:5)))
+summary(svmTuned)
+svmTuned$best.parameters
+```
+
+```{r}
+predict_tuned <- predict(svmTuned$best.model, data[,!names(data)=="class"])
+conf_tuned <- table(pred = predict_tuned, true = data[,"class"])
+print('Base SVM')
+classAgreement(conf_tuned)$diag
+```
+
+
+
