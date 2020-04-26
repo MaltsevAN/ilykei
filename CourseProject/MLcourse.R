@@ -3,7 +3,7 @@ suppressWarnings(library(xgboost))
 suppressWarnings(library(methods))
 suppressWarnings(library(reshape2))
 
-dataPath <- "C:/User1/LocalFolder/course"
+dataPath <- "./"
 train <- read.csv(paste(dataPath,"train_sample.csv",sep="/"),header=T)
 test <- read.csv(paste(dataPath,"test_sample.csv",sep="/"),header=T)
 
@@ -71,4 +71,5 @@ ypred = predict(bst, testMatrix)
 predMatrix <- data.frame(matrix(ypred, ncol=9, byrow=TRUE))
 colnames(predMatrix) = classnames
 res<-data.frame(id, predMatrix)
-write.csv(res, 'submission.csv', quote = F, row.names = F)
+write.csv(res, 'result_v2.csv', quote = F, row.names = F)
+
